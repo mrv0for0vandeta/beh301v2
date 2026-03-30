@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Findings Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #7f8c8d;
+            margin-top: 25px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+
+        blockquote {
+            border-left: 4px solid #95a5a6;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #7f8c8d;
+        }
+
+        .checkmark {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .viz-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .viz-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .viz-caption {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        @media print {
+            body {
+                max-width: 100%;
+                margin: 0;
+                padding: 20px;
+            }
+
+            h1,
+            h2 {
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DAT205 – Subject IV: Recycling Behaviors</h1>
+    <h2>COMPREHENSIVE FINDINGS REPORT</h2>
+    <p><strong>Study:</strong> Hands-On Recycling Workshop vs. Recycling Awareness Video<br />
+        <strong>Sample:</strong> N = 100 students, ages 12–18<br />
+        <strong>Design:</strong> Randomized controlled trial with mediation and moderation analysis<br />
+        <strong>Date:</strong> March 2026
+    </p>
+    <hr />
+    <h2>EXECUTIVE SUMMARY</h2>
+    <p>This study tested whether a hands-on recycling workshop produces better outcomes than a passive awareness video.
+        We examined 6 hypotheses across cognitive, behavioral, and attitudinal domains.</p>
+    <h3>Key Findings at a Glance</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Hypothesis</th>
+                <th>Result</th>
+                <th>p-value</th>
+                <th>Effect Size</th>
+                <th>Interpretation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>H1</strong> – Sorting Accuracy</td>
+                <td>❌ Not Supported</td>
+                <td>0.7492</td>
+                <td>d = -0.136</td>
+                <td>No difference between groups</td>
+            </tr>
+            <tr>
+                <td><strong>H2a</strong> – Recycling Frequency</td>
+                <td>❌ Not Supported</td>
+                <td>0.7528</td>
+                <td>r = 0.078</td>
+                <td>No difference between groups</td>
+            </tr>
+            <tr>
+                <td><strong>H2b</strong> – Observed Participation</td>
+                <td>✅ <strong>SUPPORTED</strong></td>
+                <td><strong>0.01674</strong></td>
+                <td><strong>V = 0.239</strong></td>
+                <td>Workshop → 62.2% vs. Video → 38.2%</td>
+            </tr>
+            <tr>
+                <td><strong>H3</strong> – Emotional Mediation</td>
+                <td>❌ Not Supported</td>
+                <td>0.964</td>
+                <td>ACME ≈ 0</td>
+                <td>No mediation detected</td>
+            </tr>
+            <tr>
+                <td><strong>H4</strong> – Motivation Moderation</td>
+                <td>✅ <strong>SUPPORTED</strong></td>
+                <td><strong>0.01468</strong></td>
+                <td><strong>β = 2.324</strong></td>
+                <td>Intrinsic students benefit more</td>
+            </tr>
+            <tr>
+                <td><strong>H5</strong> – Knowledge Mediation</td>
+                <td>❌ Not Supported</td>
+                <td>0.920</td>
+                <td>ACME ≈ 0</td>
+                <td>No mediation detected</td>
+            </tr>
+            <tr>
+                <td><strong>H6</strong> – Attitude Change</td>
+                <td>❌ Not Supported</td>
+                <td>0.5000</td>
+                <td>d = 0.00</td>
+                <td>Identical means (7.4 vs. 7.4)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Bottom Line:</strong> The workshop increased observable recycling behavior (H2b: 62.2% vs 38.2%, p =
+        0.01674) and worked especially well for intrinsically motivated students (H4: 91.67% vs 51.85%, p = 0.01468),
+        but did not improve sorting accuracy, frequency, attitudes, or operate through the hypothesized mediators.</p>
+    <hr />
+    <h2>DATA VISUALIZATIONS (R Screenshots)</h2>
+    <p>Below are the R-generated plots showing the key findings from our analysis:</p>
+
+    <div class="viz-container">
+        <img src="plot1_sorting_accuracy.png" alt="Sorting Accuracy by Group">
+        <p class="viz-caption"><strong>Figure 1:</strong> Sorting Accuracy by Intervention Type (No significant
+            difference, p = 0.7492)</p>
+    </div>
+
+    <div class="viz-container">
+        <img src="plot2_recycling_frequency.png" alt="Recycling Frequency Distribution">
+        <p class="viz-caption"><strong>Figure 2:</strong> Recycling Frequency Distribution by Group (No significant
+            difference, p = 0.7528)</p>
+    </div>
+
+    <div class="viz-container">
+        <img src="plot3_mediators.png" alt="Mediator Variables">
+        <p class="viz-caption"><strong>Figure 3:</strong> Mediator Variables - Knowledge Retention, Emotional
+            Connection, and Attitude (No significant differences)</p>
+    </div>
+
+    <div class="viz-container">
+        <img src="plot4_binary_outcomes.png" alt="Binary Outcomes">
+        <p class="viz-caption"><strong>Figure 4:</strong> Binary Outcomes - Observed Participation, Behavior Change, and
+            Sustained Participation (Workshop shows significant advantages)</p>
+    </div>
+
+    <div class="viz-container">
+        <img src="plot5_age_distribution.png" alt="Age Distribution">
+        <p class="viz-caption"><strong>Figure 5:</strong> Age Distribution by Intervention Type (Well-balanced groups)
+        </p>
+    </div>
+
+    <div class="viz-container">
+        <img src="Conceptual_Model_Diagram.png" alt="Conceptual Model Diagram">
+        <p class="viz-caption"><strong>Figure 6:</strong> Conceptual Model Diagram showing hypothesized relationships
+        </p>
+    </div>
+
+    <hr />
+    <h2>1. SAMPLE CHARACTERISTICS</h2>
+    <h3>1.1 Demographic Overview</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Workshop (n=45)</th>
+                <th>Video (n=55)</th>
+                <th>Total (N=100)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Age</strong></td>
+                <td>M = 15.04, SD = 1.97</td>
+                <td>M = 15.29, SD = 2.18</td>
+                <td>M = 15.18, SD = 2.08</td>
+            </tr>
+            <tr>
+                <td><strong>Gender (Female)</strong></td>
+                <td>53.3%</td>
+                <td>60.0%</td>
+                <td>57.0%</td>
+            </tr>
+            <tr>
+                <td><strong>School Type (Public)</strong></td>
+                <td>51.1%</td>
+                <td>61.8%</td>
+                <td>57.0%</td>
+            </tr>
+            <tr>
+                <td><strong>Motivational Drivers (Intrinsic)</strong></td>
+                <td>53.3%</td>
+                <td>49.1%</td>
+                <td>51.0%</td>
+            </tr>
+            <tr>
+                <td><strong>Prior Recycling Knowledge</strong></td>
+                <td>M = 2.76, SD = 1.38</td>
+                <td>M = 3.29, SD = 1.29</td>
+                <td>M = 3.05, SD = 1.35</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Randomization Check:</strong> Groups are well-balanced on age, gender, school type, and motivational
+        drivers.</p>
+    <h3>1.2 Outcome Variables – Descriptive Statistics</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Workshop</th>
+                <th>Video</th>
+                <th>Difference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Sorting Accuracy (%)</strong></td>
+                <td>78.56 ± 10.88</td>
+                <td>80.06 ± 11.26</td>
+                <td>-1.50%</td>
+            </tr>
+            <tr>
+                <td><strong>Recycling Frequency (1–5)</strong></td>
+                <td>2.80 ± 1.41</td>
+                <td>2.98 ± 1.33</td>
+                <td>-0.18</td>
+            </tr>
+            <tr>
+                <td><strong>Observed Participation (%)</strong></td>
+                <td><strong>62.2%</strong></td>
+                <td><strong>38.2%</strong></td>
+                <td><strong>+24.0%</strong> ✅</td>
+            </tr>
+            <tr>
+                <td><strong>Behavior Change (%)</strong></td>
+                <td><strong>80.0%</strong></td>
+                <td><strong>58.2%</strong></td>
+                <td><strong>+21.8%</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Sustained Participation (%)</strong></td>
+                <td><strong>75.6%</strong></td>
+                <td><strong>54.5%</strong></td>
+                <td><strong>+21.1%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>1.3 Mediators – Descriptive Statistics</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Mediator</th>
+                <th>Workshop</th>
+                <th>Video</th>
+                <th>Difference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Knowledge Retention (0–10)</strong></td>
+                <td>7.16 ± 1.73</td>
+                <td>7.13 ± 1.71</td>
+                <td>+0.03</td>
+            </tr>
+            <tr>
+                <td><strong>Emotional Connection (1–10)</strong></td>
+                <td>7.38 ± 1.75</td>
+                <td>7.42 ± 1.66</td>
+                <td>-0.04</td>
+            </tr>
+            <tr>
+                <td><strong>Attitude Toward Recycling (1–10)</strong></td>
+                <td>7.4 ± 1.79</td>
+                <td>7.4 ± 1.83</td>
+                <td>0.00</td>
+            </tr>
+            <tr>
+                <td><strong>Perceived Importance (1–10)</strong></td>
+                <td>7.02 ± 1.51</td>
+                <td>7.56 ± 1.78</td>
+                <td>-0.54</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <h2>2. HYPOTHESIS TESTING RESULTS</h2>
+    <h3>H1: Sorting Accuracy (Independent Samples t-test)</h3>
+    <p><strong>Hypothesis:</strong> Workshop students score higher on RecyclingSortingAccuracy than Video students.</p>
+    <p><strong>Theoretical Basis:</strong> Active Learning Theory (Kolb, 1984) — hands-on practice should improve
+        procedural knowledge.</p>
+    <p><strong>Results:</strong>
+        - Workshop: M = 78.56, SD = 10.88
+        - Video: M = 80.06, SD = 11.26
+        - Levene's F-test: F = 0.934, p = 0.8206 (variances equal)
+        - t = -0.67454, df = 98, p-value = 0.7492 (one-tailed)
+        - 95% CI: [-5.207256, Inf]
+        - Sample estimates: mean of x = 78.55778, mean of y = 80.06200
+        - Cohen's d = -0.136 (negligible, opposite direction)</p>
+    <p><strong>Decision:</strong> ❌ <strong>RETAIN H0</strong> — No significant difference.</p>
+    <p><strong>Interpretation:</strong> The workshop did not improve sorting accuracy. Video group actually scored 1.50
+        percentage points higher (non-significant).</p>
+    <hr />
+    <h3>H2a: Recycling Frequency (Mann-Whitney U Test)</h3>
+    <p><strong>Hypothesis:</strong> Workshop participants report higher RecyclingFrequency.</p>
+    <p><strong>Theoretical Basis:</strong> Behavioral activation — direct practice becomes habit.</p>
+    <p><strong>Results:</strong>
+        - Wilcoxon rank sum test with continuity correction
+        - W = 1141.5, p-value = 0.7528 (one-tailed)
+        - Alternative hypothesis: true location shift is greater than 0
+        - Rank-biserial r = 0.078 (negligible)</p>
+    <p><strong>Decision:</strong> ❌ <strong>RETAIN H0</strong> — No significant difference in self-reported frequency.
+    </p>
+    <p><strong>Interpretation:</strong> The workshop did not increase how often students recycle.</p>
+    <hr />
+    <h3>H2b: Observed Recycling Participation (Chi-Square Test)</h3>
+    <p><strong>Hypothesis:</strong> Workshop group shows greater ObservedRecyclingParticipation.</p>
+    <p><strong>Theoretical Basis:</strong> Behavioral activation — hands-on practice translates to observable action.
+    </p>
+    <p><strong>Contingency Table:</strong></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Group</th>
+                <th>Not Observed (0)</th>
+                <th>Observed (1)</th>
+                <th>% Observed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Workshop</td>
+                <td>17 (37.8%)</td>
+                <td><strong>28 (62.2%)</strong></td>
+                <td><strong>62.2%</strong></td>
+            </tr>
+            <tr>
+                <td>Video</td>
+                <td>34 (61.8%)</td>
+                <td>21 (38.2%)</td>
+                <td>38.2%</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Results:</strong>
+        - Pearson's Chi-squared test
+        - X-squared = 5.7239, df = 1, p-value = 0.01674
+        - Cramér's V = 0.239 (small-to-medium effect)</p>
+    <p><strong>Decision:</strong> ✅ <strong>REJECT H0</strong> — Workshop significantly increased observed recycling
+        behavior.</p>
+    <p><strong>Interpretation:</strong> Workshop students were 1.63× more likely to be observed recycling at school
+        (62.2% vs 38.2%, a 24 percentage point difference).</p>
+    <hr />
+    <h3>H3: Mediation – EmotionalConnection → BehaviorChange</h3>
+    <p><strong>Hypothesis:</strong> EmotionalConnection mediates the effect of InterventionType on BehaviorChange.</p>
+    <p><strong>Theoretical Basis:</strong> Damasio (1994) — emotional engagement converts information into motivation to
+        act.</p>
+    <p><strong>Baron-Kenny Steps:</strong></p>
+    <p><strong>Step 1: IV → BehaviorChange (total effect)</strong></p>
+    <pre class="codehilite"><code>Logistic regression: IV → BehaviorChange
+              Estimate Std. Error  z value   Pr(&gt;|z|)
+(Intercept) 0.3302417  0.2733647 1.208063 0.22702317
+IV_dummy    1.0560527  0.4621873 2.284902 0.02231857
+</code></pre>
+
+    <p><strong>Step 2: IV → EmotionalConnection (path a)</strong></p>
+    <pre class="codehilite"><code>OLS regression: IV → EmotionalConnection
+                Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept)  7.41818182  0.2295271 32.3194217 4.555863e-54
+IV_dummy    -0.04040404  0.3421587 -0.1180857 9.062415e-01
+</code></pre>
+
+    <p><strong>Step 3: IV + EmotionalConnection → BehaviorChange (path b)</strong></p>
+    <pre class="codehilite"><code>Logistic regression: IV + EmotionalConnection → BehaviorChange
+                       Estimate Std. Error    z value   Pr(&gt;|z|)
+(Intercept)         -0.4446189  1.0164264 -0.4374334 0.66179704
+IV_dummy             1.0676570  0.4641652  2.3001658 0.02143883
+EmotionalConnection  0.1047854  0.1327741  0.7892004 0.42999491
+</code></pre>
+
+    <p><strong>Bootstrapped Mediation (1000 simulations):</strong></p>
+    <pre class="codehilite"><code>Causal Mediation Analysis
+Nonparametric Bootstrap Confidence Intervals with the Percentile Method
+
+                             Estimate 95% CI Lower 95% CI Upper p-value
+ACME (control)           -0.00102738  -0.03566870   0.02538408   0.964
+ACME (treated)           -0.00068367  -0.02181451   0.01819063   0.964
+ADE (control)             0.22119605   0.04615733   0.37821721   0.018 *
+ADE (treated)             0.22153976   0.04509357   0.38751968   0.018 *
+Total Effect              0.22051238   0.04065363   0.37678297   0.018 *
+Prop. Mediated (control) -0.00465907  -0.20768490   0.16618826   0.962
+Prop. Mediated (treated) -0.00310039  -0.15727802   0.12986712   0.962
+ACME (average)           -0.00085553  -0.02839213   0.02150627   0.964
+ADE (average)             0.22136791   0.04563674   0.38399594   0.018 *
+Prop. Mediated (average) -0.00387973  -0.17723123   0.15092703   0.962
+
+Sample Size Used: 100
+Simulations: 1000
+</code></pre>
+
+    <p><strong>Decision:</strong> ❌ <strong>RETAIN H0</strong> — No mediation detected.</p>
+    <p><strong>Interpretation:</strong> The workshop increases BehaviorChange (total effect β = 1.0560527, p =
+        0.02231857), but NOT through EmotionalConnection. Path a fails completely (β = -0.04040404, p = 0.9062415).</p>
+    <hr />
+    <h3>H4: Moderation – MotivationalDrivers × InterventionType → SustainedParticipation</h3>
+    <p><strong>Hypothesis:</strong> Intrinsically motivated students show stronger, more lasting workshop effects on
+        SustainedParticipation.</p>
+    <p><strong>Theoretical Basis:</strong> Self-Determination Theory (Deci &amp; Ryan, 1985) — intrinsic motivation
+        sustains behavior longer.</p>
+    <p><strong>Main Effects Model:</strong></p>
+    <pre class="codehilite"><code>                     Estimate Std. Error    z value   Pr(&gt;|z|)
+(Intercept)      -0.09680885  0.3424896 -0.2826622 0.77743583
+IV_dummy          0.93892685  0.4439421  2.1149757 0.03443202
+Motivation_dummy  0.57648585  0.4316851  1.3354314 0.18173519
+</code></pre>
+
+    <p><strong>Interaction Model:</strong></p>
+    <pre class="codehilite"><code>Call:
+glm(formula = SustainedParticipation_num ~ IV_dummy * Motivation_dummy,
+    family = binomial, data = df)
+
+Coefficients:
+                            Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)                2.877e-01  3.819e-01   0.753   0.4513
+IV_dummy                   5.054e-15  5.833e-01   0.000   1.0000
+Motivation_dummy          -2.136e-01  5.424e-01  -0.394   0.6938
+IV_dummy:Motivation_dummy  2.324e+00  1.017e+00   2.285   0.0223 *
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 130.68  on 99  degrees of freedom
+Residual deviance: 118.09  on 96  degrees of freedom
+AIC: 126.09
+
+Number of Fisher Scoring iterations: 5
+</code></pre>
+
+    <p><strong>Model Comparison (Likelihood Ratio Test):</strong></p>
+    <pre class="codehilite"><code>Analysis of Deviance Table
+
+Model 1: SustainedParticipation_num ~ IV_dummy + Motivation_dummy
+Model 2: SustainedParticipation_num ~ IV_dummy * Motivation_dummy
+  Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
+1        97     124.04
+2        96     118.09  1   5.9547  0.01468 *
+</code></pre>
+
+    <p><strong>Predicted Probabilities:</strong></p>
+    <table>
+        <thead>
+            <tr>
+                <th>InterventionType</th>
+                <th>MotivationalDrivers</th>
+                <th>Prob_SustainedParticipation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Video</td>
+                <td>Extrinsic</td>
+                <td>0.5714286</td>
+            </tr>
+            <tr>
+                <td>Workshop</td>
+                <td>Extrinsic</td>
+                <td>0.5714286</td>
+            </tr>
+            <tr>
+                <td>Video</td>
+                <td>Intrinsic</td>
+                <td>0.5185185</td>
+            </tr>
+            <tr>
+                <td>Workshop</td>
+                <td>Intrinsic</td>
+                <td><strong>0.9166667</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Decision:</strong> ✅ <strong>REJECT H0</strong> — Moderation confirmed.</p>
+    <p><strong>Interpretation:</strong> For extrinsically motivated students, the workshop makes no difference (57.14%
+        in both conditions). But for intrinsically motivated students, the workshop nearly doubles sustained
+        participation (51.85% → 91.67%, a gain of 39.82 percentage points).</p>
+    <hr />
+    <h3>H5: Mediation – KnowledgeRetention → RecyclingSortingAccuracy</h3>
+    <p><strong>Hypothesis:</strong> KnowledgeRetention mediates the effect of InterventionType on
+        RecyclingSortingAccuracy.</p>
+    <p><strong>Theoretical Basis:</strong> Information Processing Theory — you can only perform correctly if you retain
+        the knowledge.</p>
+    <p><strong>Step 1: IV → RecyclingSortingAccuracy (total effect c)</strong></p>
+    <pre class="codehilite"><code>              Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept) 80.062000   1.495931 53.5198350 2.355635e-74
+IV_dummy    -1.504222   2.230003 -0.6745383 5.015573e-01
+</code></pre>
+
+    <p><strong>Step 2: IV → KnowledgeRetention (path a)</strong></p>
+    <pre class="codehilite"><code>               Estimate Std. Error     t value     Pr(&gt;|t|)
+(Intercept) 7.12727273  0.2319635 30.72583081 4.161110e-52
+IV_dummy    0.02828283  0.3457908  0.08179172 9.349792e-01
+</code></pre>
+
+    <p><strong>Step 3: IV + KnowledgeRetention → Accuracy (paths b &amp; c')</strong></p>
+    <pre class="codehilite"><code>                     Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept)        83.378862  4.8903721 17.0495946 6.102509e-31
+IV_dummy           -1.491060  2.2357007 -0.6669319 5.063990e-01
+KnowledgeRetention -0.465376  0.6530889 -0.7125768 4.778183e-01
+</code></pre>
+
+    <p><strong>Bootstrapped Mediation (1000 simulations):</strong></p>
+    <pre class="codehilite"><code>Causal Mediation Analysis
+
+Nonparametric Bootstrap Confidence Intervals with the Percentile Method
+
+                   Estimate 95% CI Lower 95% CI Upper p-value
+ACME           -0.0131621   -0.6263998    0.4772595   0.920
+ADE            -1.4910601   -5.5586094    2.9242721   0.528
+Total Effect   -1.5042222   -5.7698294    2.9112035   0.510
+Prop. Mediated  0.0087501   -0.8961479    0.9943908   0.906
+
+Sample Size Used: 100
+Simulations: 1000
+</code></pre>
+
+    <p><strong>Decision:</strong> ❌ <strong>RETAIN H0</strong> — No mediation detected.</p>
+    <p><strong>Interpretation:</strong> Complete failure of the mediation model. The workshop did not improve knowledge
+        retention (Workshop M = 7.16 vs. Video M = 7.13, difference = 0.03), and knowledge retention did not predict
+        sorting accuracy (β = -0.4654, p = 0.4778).</p>
+    <hr />
+    <h3>H6: Attitude Change (Independent Samples t-test)</h3>
+    <p><strong>Hypothesis:</strong> Workshop produces larger change in AttitudeTowardRecycling than Video.</p>
+    <p><strong>Theoretical Basis:</strong> Cognitive Dissonance (Festinger, 1957) — physical action creates pressure to
+        align attitudes with behavior.</p>
+    <p><strong>Results:</strong>
+        - Workshop: M = 7.4, SD = 1.79
+        - Video: M = 7.4, SD = 1.83
+        - Two Sample t-test
+        - t = 0, df = 98, p-value = 0.5 (one-tailed)
+        - Alternative hypothesis: true difference in means is greater than 0
+        - 95% CI: [-0.6050337, Inf]
+        - Sample estimates: mean of x = 7.4, mean of y = 7.4
+        - Cohen's d = 0 (no difference whatsoever)</p>
+    <p><strong>Decision:</strong> ❌ <strong>RETAIN H0</strong> — No difference in attitudes.</p>
+    <p><strong>Interpretation:</strong> The workshop did not shift attitudes more than the video. Both groups reported
+        identical post-intervention attitudes (Workshop M = 7.4, Video M = 7.4, difference = 0.00).</p>
+    <hr />
+    <h2>3. SUMMARY OF ALL HYPOTHESIS TESTS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>H</th>
+                <th>Test</th>
+                <th>Key Statistic</th>
+                <th>p-value</th>
+                <th>Decision</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>H1</td>
+                <td>t-test (Sorting Accuracy)</td>
+                <td>t = -0.67454, df = 98</td>
+                <td>0.7492</td>
+                <td>RETAIN H0</td>
+            </tr>
+            <tr>
+                <td>H2a</td>
+                <td>Mann-Whitney U (Frequency)</td>
+                <td>W = 1141.5</td>
+                <td>0.7528</td>
+                <td>RETAIN H0</td>
+            </tr>
+            <tr>
+                <td>H2b</td>
+                <td>Chi-square (Observed Participation)</td>
+                <td>X-squared = 5.7239, df = 1</td>
+                <td>0.0167</td>
+                <td>REJECT H0</td>
+            </tr>
+            <tr>
+                <td>H3</td>
+                <td>Mediation: EmotionalConn → BehaviorChange</td>
+                <td>ACME = -0.00085553</td>
+                <td>0.9640</td>
+                <td>RETAIN H0</td>
+            </tr>
+            <tr>
+                <td>H4</td>
+                <td>Moderation: Motivation × IV → Sustained</td>
+                <td>Deviance = 5.9547, df = 1</td>
+                <td>0.0147</td>
+                <td>REJECT H0</td>
+            </tr>
+            <tr>
+                <td>H5</td>
+                <td>Mediation: KnowledgeRet → SortingAccuracy</td>
+                <td>ACME = -0.0131621</td>
+                <td>0.9200</td>
+                <td>RETAIN H0</td>
+            </tr>
+            <tr>
+                <td>H6</td>
+                <td>t-test (Attitude Toward Recycling)</td>
+                <td>t = 0, df = 98</td>
+                <td>0.5000</td>
+                <td>RETAIN H0</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Overall Success Rate:</strong> 2/6 hypotheses supported (33.3%)</p>
+    <hr />
+    <h2>4. INTERPRETATION GUIDE</h2>
+    <h3>p-VALUE</h3>
+    <ul>
+        <li>p &lt; 0.05 → statistically significant → REJECT H0</li>
+        <li>p &gt;= 0.05 → not significant → RETAIN H0</li>
+        <li>The p-value is the probability of observing your result (or more extreme) if H0 were true. It does NOT tell
+            you the probability that H1 is true.</li>
+    </ul>
+    <h3>EFFECT SIZES</h3>
+    <ul>
+        <li>Cohen's d (t-tests): 0.2=small, 0.5=medium, 0.8=large</li>
+        <li>Rank-biserial r (Mann-Whitney): 0.1=small, 0.3=medium, 0.5=large</li>
+        <li>Cramér's V (Chi-square): 0.1=small, 0.3=medium, 0.5=large</li>
+        <li>Always report effect sizes alongside p-values.</li>
+        <li>A significant result with a tiny effect size may not be practically meaningful.</li>
+    </ul>
+    <h3>MEDIATION (H3, H5)</h3>
+    <ul>
+        <li>Significant ACME + 95% CI excluding 0 = mediation supported.</li>
+        <li>Prop. Mediated &gt; 0.5 = majority of effect is indirect.</li>
+    </ul>
+    <h3>MODERATION (H4)</h3>
+    <ul>
+        <li>Significant interaction term = moderation confirmed.</li>
+        <li>Use predicted probabilities to describe the pattern.</li>
+    </ul>
+    <h3>CONFIDENCE INTERVALS</h3>
+    <ul>
+        <li>A 95% CI that does NOT include 0 (for differences) or 1 (for odds ratios) is consistent with significance.
+        </li>
+    </ul>
+    <h3>ASSUMPTIONS TO CHECK</h3>
+    <ul>
+        <li>t-test: normality (Shapiro-Wilk), equal variances (F-test)</li>
+        <li>Chi-square: expected cell counts &gt;= 5</li>
+        <li>Logistic regression: no perfect separation, adequate N</li>
+        <li>Mediation: temporal ordering of variables assumed</li>
+    </ul>
+    <hr />
+    <h2>5. CONCLUSIONS</h2>
+    <h3>What Worked ✅</h3>
+    <ol>
+        <li><strong>Observable Behavior (H2b):</strong> Workshop increased recycling by 24 percentage points (62.2% vs
+            38.2%, p = 0.01674, V = 0.239)</li>
+        <li><strong>Motivation Moderation (H4):</strong> Intrinsic students showed 39.82 pp gain in sustained
+            participation (91.67% vs 51.85%, p = 0.01468)</li>
+    </ol>
+    <h3>What Didn't Work ❌</h3>
+    <ol>
+        <li><strong>Sorting Accuracy (H1):</strong> No improvement (p = 0.7492, d = -0.136)</li>
+        <li><strong>Self-Reported Frequency (H2a):</strong> No difference (p = 0.7528, r = 0.078)</li>
+        <li><strong>Emotional Mediation (H3):</strong> Not operating (p = 0.964, ACME ≈ 0)</li>
+        <li><strong>Knowledge Mediation (H5):</strong> Not operating (p = 0.920, ACME ≈ 0)</li>
+        <li><strong>Attitude Change (H6):</strong> Identical scores (p = 0.5000, d = 0.00)</li>
+    </ol>
+    <h3>Key Takeaway</h3>
+    <p>Hands-on workshops increase observable recycling behavior, especially for intrinsically motivated students, but
+        don't improve knowledge, attitudes, or operate through hypothesized mediators. The mechanisms remain unclear.
+    </p>
+    <hr />
+    <p><strong>Report Prepared By:</strong> BEH301 Analysis Team4<br />
+        <strong>Date:</strong> March 2026<br />
+        <strong>Software:</strong> R version 4.4.1 (dplyr, ggplot2, coin, mediation, lmtest, sandwich)<br />
+        <strong>Data:</strong> Subject 4_Recycling_Experiment_Database.csv (N = 100)
+    </p>
+</body>
+
+</html>
